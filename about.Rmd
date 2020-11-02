@@ -1,0 +1,41 @@
+---
+title: "Hanyu Lu"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+## Education
+
+* **University of Illinois at Urbana Champaign**	Aug. 2015 – May 2020
+  
+  Bachelor of Science in Mathematics, Champaign, IL
+
+* **Quantitative Courses**: Calculus I, II & III, Statistics & Probability I & II, Differential Equations, Real Analysis
+
+* **Awards and Honors**: Dean’s List, Aug. 2015 – Jun. 2016
+
+
+## Professional Experience
+
+* **Teaching: Facilitator for LAS 100**	  Aug. – Dec. 2017
+
+  * Led a 2-hour lecture weekly that aims to familiarize 20 international students with future campus life by guiding theme-centered discussions with debatable questions
+  
+  * Composed weekly course plan with instructor by designing irradiative questions for class discussion
+
+
+## Project Experience
+
+* **Discovery of the Connections between Steiner Inellipse and Poncelet’s Porism**  Fall 2017
+
+  * Investigated connections between Steiner Inellipse and Poncelet’s Porism
+  
+  * Originated a proof that a unique Steiner Inellipse exists with given Blaschke products under specific conditions
+
+* **Brownian Motion on the CR Sphere ** Spring 2018
+
+  * Visualized Brownian motion on the CR sphere and simulated Brownian motion in Anti-de Sitter space
+  
+  * Coordinated weekly tasks with team members by collecting computational data and analyzing data with Mathematica
