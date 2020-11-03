@@ -7,11 +7,12 @@ output:
     toc_float: true
 ---
  
-## This is Hanyu Lu's awesome website
+ 
 
 Hi! I am Hanyu Lu, studying at Columbia University for a Biostatistics master program.If you want to know more about my academic and professional experience or reach me by email, please click on the button on the upper right corner.
 
+## Favorite Animate Figure
 
-
+<img src="images/IMG_9475 copy.JPG" style="width:75%">
 
 
