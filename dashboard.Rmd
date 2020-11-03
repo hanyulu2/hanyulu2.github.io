@@ -1,0 +1,81 @@
+---
+title: "Dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    source: embed
+---
+
+```{r setup, echo = FALSE}
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+library(flexdashboard)
+```
+
+```{r}
+data("instacart")
+
+instacart_1 = 
+  instacart %>% 
+  filter(
+    department == "product" | department == "breakfast"
+  ) %>% 
+  mutate(
+    product_name = as.factor(product_name),
+    department = as.factor(department),
+    order_dow = as.factor(order_dow),
+    order_hour_of_day = as.factor(order_hour_of_day)
+  ) %>% 
+  select(product_name, department, order_dow, order_hour_of_day) 
+
+levels(instacart_1$order_dow) <- c('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
+  
+set.seed(996)
+cart_sample = sample_n(instacart_1, 20000)
+```
+
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+cart_sample %>% 
+  count(order_dow) %>% 
+  plot_ly(
+    x = ~order_dow, y = ~n, color = ~order_dow, 
+    type = "bar", colors = "viridis")
+
+```
+
+
+Row {data-height=650}
+-----------------------------------------------------------------------
+
+### Chart B
+
+
+```{r}
+cart_sample %>% 
+  plot_ly(
+    x = ~order_dow, y = ~order_hour_of_day, 
+    alpha = .5, type = "histogram2d")
+```
+
+
+### Chart C
+
+```{r}
+cart_sample %>% 
+  count(order_hour_of_day) %>% 
+  plot_ly(
+    x = ~order_hour_of_day, y = ~n, 
+    type = "scatter", mode = "lines")
+```
+
+
+
+
