@@ -20,7 +20,7 @@ data("instacart")
 instacart_1 = 
   instacart %>% 
   filter(
-    department == "product" | department == "breakfast"
+    department == "breakfast" 
   ) %>% 
   mutate(
     product_name = as.factor(product_name),
@@ -32,22 +32,26 @@ instacart_1 =
 
 levels(instacart_1$order_dow) <- c('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
   
-set.seed(996)
-cart_sample = sample_n(instacart_1, 20000)
 ```
 
 
-Column {data-width=500}
+Column {data-width=600}
 -----------------------------------------------------------------------
 
 ### Chart A
 
 ```{r}
-cart_sample %>% 
+instacart_1 %>% 
   count(order_dow) %>% 
   plot_ly(
     x = ~order_dow, y = ~n, color = ~order_dow, 
-    type = "bar", colors = "viridis")
+    type = "bar", colors = "viridis") %>% 
+  layout(
+    xaxis = list(title = ""),
+    yaxis = list(title = ""),
+    barmode = "group",
+    title = "Breakfast Consumption Comparison For A Week"
+  )
 
 ```
 
@@ -59,21 +63,31 @@ Row {data-height=650}
 
 
 ```{r}
-cart_sample %>% 
+instacart_1 %>% 
   plot_ly(
     x = ~order_dow, y = ~order_hour_of_day, 
-    alpha = .5, type = "histogram2d")
+    alpha = .5, type = "histogram2d") %>% 
+  layout(
+    xaxis = list(title = "Week"),
+    yaxis = list(title = "Hour")
+  )
 ```
 
 
 ### Chart C
 
 ```{r}
-cart_sample %>% 
+instacart_1 %>% 
   count(order_hour_of_day) %>% 
   plot_ly(
     x = ~order_hour_of_day, y = ~n, 
-    type = "scatter", mode = "lines")
+    type = "scatter", mode = "lines") %>% 
+  layout(
+    xaxis = list(title = ""),
+    yaxis = list(title = ""),
+    barmode = "group",
+    title = "Breakfast Consumption Comparison For 24 Hours"
+  )
 ```
 
 
