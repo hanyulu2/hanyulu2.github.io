@@ -32,6 +32,8 @@ instacart_1 =
 
 levels(instacart_1$order_dow) <- c('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
   
+set.seed(996)
+instacart_2 = sample_n(instacart_1, 20000)
 ```
 
 
@@ -41,7 +43,7 @@ Column {data-width=600}
 ### Chart A
 
 ```{r}
-instacart_1 %>% 
+instacart_2 %>% 
   count(order_dow) %>% 
   plot_ly(
     x = ~order_dow, y = ~n, color = ~order_dow, 
@@ -53,6 +55,8 @@ instacart_1 %>%
     title = "Breakfast Consumption Comparison For A Week"
   )
 
+
+
 ```
 
 
@@ -63,7 +67,7 @@ Row {data-height=650}
 
 
 ```{r}
-instacart_1 %>% 
+instacart_2 %>% 
   plot_ly(
     x = ~order_dow, y = ~order_hour_of_day, 
     alpha = .5, type = "histogram2d") %>% 
@@ -77,7 +81,7 @@ instacart_1 %>%
 ### Chart C
 
 ```{r}
-instacart_1 %>% 
+instacart_2 %>% 
   count(order_hour_of_day) %>% 
   plot_ly(
     x = ~order_hour_of_day, y = ~n, 
