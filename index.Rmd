@@ -15,4 +15,6 @@ Hi! I am Hanyu Lu, studying at Columbia University for a Biostatistics master pr
 
 <img src="images/IMG_9475 copy.JPG" style="width:75%">
 
+## Favorite Math Book
 
+<img src="images/book_algebra.png" style="width:75%">
